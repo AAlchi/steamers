@@ -6,7 +6,7 @@ export default function Form() {
       <h2>Form</h2>
       <input type="text" />
       <input type="email" />
-      <input type="tel" />
+      <input type="phone" />
     </div>
   );
 }

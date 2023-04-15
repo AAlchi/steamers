@@ -43,8 +43,9 @@ export default function Form() {
             <h4>For a chance to help veterans</h4>
           </center>
         </div>
-        <input type="text" placeholder="Name" />
-        <input type="email" placeholder="Email" />
+        <form class="form">
+        <input class="name" type="text" placeholder="Name" />
+        <input class="email" type="email" placeholder="Email" />
         <input
           onChange={(e) => setPhone(e.target.value)}
           type="tel"

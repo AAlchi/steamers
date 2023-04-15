@@ -1,7 +1,8 @@
-import {google} from 'googleapis';
+// import { google } from 'googleapis';
 
 export async function getServerSideVolunteers({query}){
 
+    
     const auth = await google.auth.getClient({scopes: ['https://www.googleapis.com/auth/spreadsheets']});
     const sheets = google.sheets({version: 'v4', auth})
 

@@ -27,8 +27,6 @@ export default function Form() {
         <button>Sign Up</button>
       </form>
       <Footer />
-      <Link to="/ConfirmationPage">ConfirmationPage</Link>
-      <Link to="/ErrorPage">ErrorPage</Link>
     </>
   );
 }

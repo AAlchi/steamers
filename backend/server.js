@@ -12,7 +12,7 @@ let envitem =
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 
-const sgMail = require("@sendgrid/mail");
+const sgMail = require('sendgrid');
 sgMail.setApiKey(envitem);
 const msg = {
   to: "alialchi07@gmail.com", // Change to your recipient

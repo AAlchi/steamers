@@ -7,6 +7,7 @@ export default function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [] = useState("");
   const navigate = useNavigate();
 
   const finish = (e) => {
@@ -16,9 +17,10 @@ export default function Form() {
       email: email,
       phone: phone,
     };
+
     axios
       .post(
-        "https://sheet.best/api/sheets/5be3d955-b402-43d3-afce-728eab0a643b",
+        "https://sheet.best/api/sheets/ac21aa44-68ac-409c-9f1f-9cfc60262fe9",
         formDataThing
       )
       .then((res) => {
@@ -26,9 +28,7 @@ export default function Form() {
         setName("");
         setEmail("");
         setPhone("");
-        navigate('/ConfirmationPage')
       });
-
   };
   return (
     <>
@@ -43,25 +43,43 @@ export default function Form() {
             <h4>For a chance to help veterans</h4>
           </center>
         </div>
-        <input
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          placeholder="Name"
-          value={name}
-        />
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email"
-          value={email}
-        />
+        <form class="form">
+        <input class="name" type="text" placeholder="Name" />
+        <input class="email" type="email" placeholder="Email" />
         <input
           onChange={(e) => setPhone(e.target.value)}
           type="tel"
+          class="number"
           placeholder="Phone Number"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           value={phone}
         />
+        </form>
+        <script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+        <script>
+        const form= document.querySelector('.form')
+        function sendMessage(e){
+          e.preventDefault();
+                const name= document.querySelector('.name')
+              email= document.querySelector('.email')
+              message="You signed up with the data from the port - i can integrate the data later "ALI""
+
+              Email.send({
+              SecureToken:"bb1c565a-23df-4cf9-9c70-006d69d75cbc",
+              To : email.value,
+              From : "jamh885@gmail.com",
+              Subject : "This is the subject",
+              Body : message.value }).then(
+            message = alert(message)
+          );
+        }
+
+        form.addEventListener('submit', sendMessage)
+
+        </script>
+
 
         <button onClick={finish}>Sign Up</button>
       </form>

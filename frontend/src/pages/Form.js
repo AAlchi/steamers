@@ -7,6 +7,7 @@ export default function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const [] = useState("");
   const navigate = useNavigate();
 
   const finish = (e) => {
@@ -16,9 +17,10 @@ export default function Form() {
       email: email,
       phone: phone,
     };
+
     axios
       .post(
-        "https://sheet.best/api/sheets/5be3d955-b402-43d3-afce-728eab0a643b",
+        "https://sheet.best/api/sheets/ac21aa44-68ac-409c-9f1f-9cfc60262fe9",
         formDataThing
       )
       .then((res) => {
@@ -26,9 +28,7 @@ export default function Form() {
         setName("");
         setEmail("");
         setPhone("");
-        navigate('/ConfirmationPage')
       });
-
   };
   return (
     <>

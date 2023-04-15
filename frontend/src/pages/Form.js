@@ -1,8 +1,35 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
+import axios from "axios";
 
 export default function Form() {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
+
+  const finish = (e) => {
+    e.preventDefault();
+    let formDataThing = {
+      name: name,
+      email: email,
+      phone: phone,
+    };
+    axios
+      .post(
+        "https://sheet.best/api/sheets/5be3d955-b402-43d3-afce-728eab0a643b",
+        formDataThing
+      )
+      .then((res) => {
+        console.log(formDataThing);
+        setName("");
+        setEmail("");
+        setPhone("");
+        navigate('/ConfirmationPage')
+      });
+
+  };
   return (
     <>
       <form>
@@ -16,14 +43,15 @@ export default function Form() {
             <h4>For a chance to help veterans</h4>
           </center>
         </div>
-        <form class="form">
-        <input class="name" type="text" placeholder="Name" />
-        <input class="email" type="email" placeholder="Email" />
+        <input type="text" placeholder="Name" />
+        <input type="email" placeholder="Email" />
         <input
+          onChange={(e) => setPhone(e.target.value)}
           type="tel"
           class="number"
           placeholder="Phone Number"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+          value={phone}
         />
         </form>
         <script src="https://smtpjs.com/v3/smtp.js">
@@ -52,7 +80,7 @@ export default function Form() {
         </script>
 
 
-        <button>Sign Up</button>
+        <button onClick={finish}>Sign Up</button>
       </form>
       <Footer />
     </>

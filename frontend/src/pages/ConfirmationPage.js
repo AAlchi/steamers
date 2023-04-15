@@ -5,7 +5,7 @@ export default function ConfirmationPage() {
   return  <div className="body">
       <div className="center">
       <h1>Thank You</h1>
-      <p>your form has been recieved.</p>
+      <p>Your volunteering is appreciated.</p>
       </div>
       </div>
     ;

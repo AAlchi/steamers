@@ -1,8 +1,15 @@
-import logo from "./logo.svg";
-import "./App.css";
+import "./index.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import Form from "./pages/Form";
 
 function App() {
-  return <div className="App"></div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Form />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;

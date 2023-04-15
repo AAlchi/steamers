@@ -3,8 +3,10 @@ const cors = require('cors')
 
 const routes = require('./routes/main')
 
-app.options("*", cors());
-
 const app = express();
 
+app.options("*", cors());
+
 app.use('/', routes)
+
+app.listen(8080);

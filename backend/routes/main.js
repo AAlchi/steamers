@@ -1,8 +1,9 @@
 const express = require("express");
 const router = express.Router();
+const fun = require('../[id]')
 
 router.get("/", async (req, res, next) => {
-  console.log(res);
+  fun.getServerSideVolunteers(req);
 });
 
 module.exports = router;

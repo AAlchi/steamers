@@ -43,25 +43,43 @@ export default function Form() {
             <h4>For a chance to help veterans</h4>
           </center>
         </div>
-        <input
-          onChange={(e) => setName(e.target.value)}
-          type="text"
-          placeholder="Name"
-          value={name}
-        />
-        <input
-          onChange={(e) => setEmail(e.target.value)}
-          type="email"
-          placeholder="Email"
-          value={email}
-        />
+        <form class="form">
+        <input class="name" type="text" placeholder="Name" />
+        <input class="email" type="email" placeholder="Email" />
         <input
           onChange={(e) => setPhone(e.target.value)}
           type="tel"
+          class="number"
           placeholder="Phone Number"
           pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
           value={phone}
         />
+        </form>
+        <script src="https://smtpjs.com/v3/smtp.js">
+</script>
+
+        <script>
+        const form= document.querySelector('.form')
+        function sendMessage(e){
+          e.preventDefault();
+                const name= document.querySelector('.name')
+              email= document.querySelector('.email')
+              message="You signed up with the data from the port - i can integrate the data later "ALI""
+
+              Email.send({
+              SecureToken:"bb1c565a-23df-4cf9-9c70-006d69d75cbc",
+              To : email.value,
+              From : "jamh885@gmail.com",
+              Subject : "This is the subject",
+              Body : message.value }).then(
+            message = alert(message)
+          );
+        }
+
+        form.addEventListener('submit', sendMessage)
+
+        </script>
+
 
         <button onClick={finish}>Sign Up</button>
       </form>

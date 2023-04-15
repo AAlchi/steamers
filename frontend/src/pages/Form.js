@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Footer from "./Footer";
 import axios from "axios";
 
@@ -7,6 +7,7 @@ export default function Form() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [phone, setPhone] = useState("");
+  const navigate = useNavigate();
 
   const finish = (e) => {
     e.preventDefault();
@@ -25,7 +26,9 @@ export default function Form() {
         setName("");
         setEmail("");
         setPhone("");
+        navigate('/ConfirmationPage')
       });
+
   };
   return (
     <>

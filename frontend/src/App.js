@@ -10,7 +10,7 @@ function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/ErrorPage" element={<ErrorPage/>}/>
+        <Route path="/*" element={<ErrorPage/>}/>
         <Route path="/ConfirmationPage" element={<ConfirmationPage />} />
         <Route path="/" element={<Form />} />
         <Route path="/More" element={<More />} />

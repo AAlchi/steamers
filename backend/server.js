@@ -6,15 +6,14 @@ const dotenv = require("dotenv");
 
 dotenv.config();
 
-app.get("/", (req, res) => {
-  res.send("Hello");
-});
+let envitem =
+  "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";
 
 // using Twilio SendGrid's v3 Node.js Library
 // https://github.com/sendgrid/sendgrid-nodejs
 
 const sgMail = require("@sendgrid/mail");
-sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+sgMail.setApiKey(envitem);
 const msg = {
   to: "alialchi07@gmail.com", // Change to your recipient
   from: "aalchikhibrahim6522@stu.d214.org", // Change to your verified sender
@@ -30,9 +29,3 @@ sgMail
   .catch((error) => {
     console.log(error);
   });
-
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => {
-  console.log("Running on port 5000");
-});

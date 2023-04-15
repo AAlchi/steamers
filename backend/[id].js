@@ -1,6 +1,7 @@
-// import { google } from 'googleapis';
+const {google} = require('googleapis')
 
-export async function getServerSideVolunteers({query}){
+
+module.exports = async function getServerSideVolunteers({query}){
 
     
     const auth = await google.auth.getClient({scopes: ['https://www.googleapis.com/auth/spreadsheets']});
@@ -26,4 +27,4 @@ export async function getServerSideVolunteers({query}){
     }
 }
 
-export default function Volunteer({name, number, email})
+// export default function Volunteer({name, number, email})
